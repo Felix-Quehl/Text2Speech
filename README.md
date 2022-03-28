@@ -5,5 +5,5 @@ This is a basic text to speech converter that consumes a txt file and outputs a 
 ## How to use
 
 ```bash
-.\Text2Speech.exe .\input.txt .\out.wav
+.\Text2Speech.exe "en-US" .\input.txt .\out.wav
 ```
