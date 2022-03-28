@@ -29,7 +29,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       name: Upload Binaries
       with:
-        name: maps_tool_binaries
+        name: text_to_speech_binaries
         path: |
           .\bin\release\net4.8\
           .\README.md
