@@ -8,15 +8,16 @@ namespace Text2Speech
     {
         static void Main(string[] args)
         {
-            var inputFilePath = args[0];
-            var outputFilePath = args[1];
+            var culture = args[0];
+            var inputFilePath = args[1];
+            var outputFilePath = args[2];
 
             var text = File.ReadAllText(inputFilePath);
 
             var synthesizer = new SpeechSynthesizer();
             synthesizer.SetOutputToDefaultAudioDevice();
             var builder = new PromptBuilder();
-            var culture = new CultureInfo("en-US");
+            var culture = new CultureInfo(culture);
             builder.StartVoice(culture);
             builder.AppendText(text);
             builder.EndVoice();
