@@ -1,0 +1,35 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    
+    - uses: actions/checkout@v2
+      name: Checkout Code
+      
+      
+    - uses: Elskom/setup-latest-dotnet@v1.1.2
+      name: Setup .NET SDKs
+      with:
+        VERSION_MAJOR: 4
+        VERSION_MINOR: 8
+
+    - name: Build Binaries
+      run: dotnet build -c release
+    
+    - uses: actions/upload-artifact@v2
+      name: Upload Binaries
+      with:
+        name: maps_tool_binaries
+        path: |
+          .\bin\release\net4.8\
+          .\README.md
