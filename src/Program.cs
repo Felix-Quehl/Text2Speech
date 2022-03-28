@@ -8,7 +8,7 @@ namespace Text2Speech
     {
         static void Main(string[] args)
         {
-            var culture = args[0];
+            var cultureArg = args[0];
             var inputFilePath = args[1];
             var outputFilePath = args[2];
 
@@ -17,7 +17,7 @@ namespace Text2Speech
             var synthesizer = new SpeechSynthesizer();
             synthesizer.SetOutputToDefaultAudioDevice();
             var builder = new PromptBuilder();
-            var culture = new CultureInfo(culture);
+            var culture = new CultureInfo(cultureArg);
             builder.StartVoice(culture);
             builder.AppendText(text);
             builder.EndVoice();
